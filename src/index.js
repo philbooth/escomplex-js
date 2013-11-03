@@ -1,3 +1,5 @@
+/*globals require, exports */
+
 'use strict';
 
 var check, esprima, walker, escomplex;
