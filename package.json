@@ -25,14 +25,17 @@
         "esprima"
     ],
     "dependencies": {
+        "check-types": "0.7.x",
         "esprima": "1.0.x",
         "escomplex-ast-moz": "0.1.x",
-        "check-types": "0.7.x"
+        "escomplex": "0.2.x"
     },
     "devDependencies": {
         "jshint": "2.1.x",
         "mocha": "1.14.x",
-        "chai": "1.8.x"
+        "chai": "1.8.x",
+        "mockery": "1.4.x",
+        "spooks": "0.5.x"
     },
     "scripts": {
         "lint": "./node_modules/jshint/bin/jshint src --config config/jshint.json",
