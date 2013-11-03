@@ -1,0 +1,42 @@
+{
+    "name": "escomplex-js",
+    "version": "0.1.0",
+    "description": "Javascript wrapping library for escomplex.",
+    "homepage": "https://github.com/philbooth/escomplex-js",
+    "bugs": "https://github.com/philbooth/escomplex-js/issues",
+    "license": "MIT",
+    "author": "Phil Booth <pmbooth@gmail.com> (https://github.com/philbooth)",
+    "main": "./src",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/philbooth/escomplex-js.git"
+    },
+    "keywords": [
+        "escomplex",
+        "complexity",
+        "simplicity",
+        "cyclomatic",
+        "halstead",
+        "maintainability",
+        "dependencies",
+        "static",
+        "analysis",
+        "metrics",
+        "esprima"
+    ],
+    "dependencies": {
+        "esprima": "1.0.x",
+        "escomplex-ast-moz": "0.1.x",
+        "check-types": "0.7.x"
+    },
+    "devDependencies": {
+        "jshint": "2.1.x",
+        "mocha": "1.14.x",
+        "chai": "1.8.x"
+    },
+    "scripts": {
+        "lint": "./node_modules/jshint/bin/jshint src --config config/jshint.json",
+        "test": "./node_modules/mocha/bin/mocha --ui tdd --reporter spec --colors test"
+    }
+}
+
