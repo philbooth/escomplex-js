@@ -1,5 +1,7 @@
 'use strict';
 
+var check, esprima, walker, escomplex;
+
 check = require('check-types');
 esprima = require('esprima');
 walker = require('escomplex-ast-moz');
