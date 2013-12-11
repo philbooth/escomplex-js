@@ -12,7 +12,7 @@ escomplex = require('escomplex');
 exports.analyse = analyse;
 
 function analyse (source, options) {
-    if (check.isArray(source)) {
+    if (check.array(source)) {
         return analyseSources(source, options);
     }
 
