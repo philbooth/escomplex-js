@@ -21,10 +21,15 @@ function analyse (source, options) {
 
 function analyseSources (sources, options) {
     return performAnalysis(sources.map(function (source) {
-        return {
-            path: source.path,
-            ast: getSyntaxTree(source.code)
-        };
+        try {
+            return {
+                path: source.path,
+                ast: getSyntaxTree(source.code)
+            };
+        } catch (error) {
+            error.message = source.path + ': ' + error.message;
+            throw error;
+        }
     }), options);
 }
 
