@@ -27,8 +27,8 @@
     "dependencies": {
         "check-types": "2.1.x",
         "esprima": "1.0.x",
-        "escomplex-ast-moz": "0.1.x",
-        "escomplex": "0.2.5"
+        "escomplex-ast-moz": "0.1.6",
+        "escomplex": "0.2.6"
     },
     "devDependencies": {
         "jshint": "2.1.x",
