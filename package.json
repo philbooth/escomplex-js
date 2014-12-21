@@ -25,7 +25,7 @@
         "esprima"
     ],
     "dependencies": {
-        "check-types": "1.1.x",
+        "check-types": "2.1.x",
         "esprima": "1.0.x",
         "escomplex-ast-moz": "0.1.x",
         "escomplex": "0.2.5"
