@@ -162,6 +162,33 @@ suite('index:', function () {
             });
         });
 
+        suite('array with bad code source:', function() {
+            var code;
+
+            setup(function () {
+                mockery.deregisterMock('esprima');
+                mockery.disable();
+                code = [ { path: '/foo.js', code: '<%= bad_code %>' }, { path: '../bar.js', code: '"bar";' } ];
+                index = require(modulePath);
+            });
+
+            teardown(function () {
+                code = undefined;
+            });
+
+            test('throws an error when invalid code is passed', function() {
+                assert.throw(function() {
+                    index.analyse(code, {});
+                }, / Unexpected token/);
+            });
+            test('swallows a error when invalid code is passed and ignoreErrors is set', function() {
+                assert.doesNotThrow(function() {
+                    index.analyse(code, {ignoreErrors: true});
+                });
+            });
+
+        });
+
         suite('string source:', function () {
             var options, result;
 
