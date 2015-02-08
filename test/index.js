@@ -162,13 +162,13 @@ suite('index:', function () {
             });
         });
 
-        suite('array with bad code source:', function() {
+        suite('array source with bad code:', function() {
             var code;
 
             setup(function () {
                 mockery.deregisterMock('esprima');
                 mockery.disable();
-                code = [ { path: '/foo.js', code: '<%= bad_code %>' }, { path: '../bar.js', code: '"bar";' } ];
+                code = [ { path: '/foo.js', code: 'foo foo' }, { path: '../bar.js', code: '"bar";' } ];
                 index = require(modulePath);
             });
 
@@ -176,17 +176,17 @@ suite('index:', function () {
                 code = undefined;
             });
 
-            test('throws an error when invalid code is passed', function() {
-                assert.throw(function() {
+            test('throws an error with default options', function() {
+                assert.throws(function() {
                     index.analyse(code, {});
-                }, / Unexpected token/);
-            });
-            test('swallows a error when invalid code is passed and ignoreErrors is set', function() {
-                assert.doesNotThrow(function() {
-                    index.analyse(code, {ignoreErrors: true});
-                });
+                }, '/foo.js: Line 1: Unexpected identifier');
             });
 
+            test('swallows error with options.ignoreErrors', function() {
+                assert.doesNotThrow(function() {
+                    index.analyse(code, { ignoreErrors: true });
+                });
+            });
         });
 
         suite('string source:', function () {
