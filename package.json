@@ -1,6 +1,6 @@
 {
     "name": "escomplex-js",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "Javascript wrapping library for escomplex.",
     "homepage": "https://github.com/philbooth/escomplex-js",
     "bugs": "https://github.com/philbooth/escomplex-js/issues",
