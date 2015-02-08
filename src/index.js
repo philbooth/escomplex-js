@@ -20,21 +20,32 @@ function analyse (source, options) {
 }
 
 function analyseSources (sources, options) {
-    var asts = sources.map(function (source) {
-        try {
-            return {
-                path: source.path,
-                ast: getSyntaxTree(source.code)
-            };
-        } catch (error) {
-            if (!options.ignoreErrors) {
-                error.message = source.path + ': ' + error.message;
-                throw error;
-            }
+    return performAnalysis(
+        sources.map(
+            mapSource.bind(null, options)
+        ).filter(filterSource),
+        options
+    );
+}
+
+function mapSource (options, source) {
+    try {
+        return {
+            path: source.path,
+            ast: getSyntaxTree(source.code)
+        };
+    } catch (error) {
+        if (options.ignoreErrors) {
             return null;
         }
-    }).filter(function(o) { return !!o; });
-    return performAnalysis(asts, options);
+
+        error.message = source.path + ': ' + error.message;
+        throw error;
+    }
+}
+
+function filterSource (source) {
+    return !!source;
 }
 
 function getSyntaxTree (source) {
