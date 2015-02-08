@@ -20,17 +20,21 @@ function analyse (source, options) {
 }
 
 function analyseSources (sources, options) {
-    return performAnalysis(sources.map(function (source) {
+    var asts = sources.map(function (source) {
         try {
             return {
                 path: source.path,
                 ast: getSyntaxTree(source.code)
             };
         } catch (error) {
-            error.message = source.path + ': ' + error.message;
-            throw error;
+            if (!options.ignoreErrors) {
+                error.message = source.path + ': ' + error.message;
+                throw error;
+            }
+            return null;
         }
-    }), options);
+    }).filter(function(o) { return !!o; });
+    return performAnalysis(asts, options);
 }
 
 function getSyntaxTree (source) {
