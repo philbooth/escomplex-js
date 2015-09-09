@@ -2,7 +2,11 @@
 
 [![Build status][ci-image]][ci-status]
 
-**NOTE: This project is no longer maintained. If you're interested in taking ownership, please contact me.**
+:exclamation: :anguished: :exclamation: :anguished: :exclamation: :anguished: :exclamation: :anguished: :exclamation: :anguished: :exclamation: :anguished: :exclamation: :anguished: :exclamation: :anguished: :exclamation: :anguished: :exclamation: :anguished: :exclamation:
+
+**NOTE: This fork is no longer maintained. Use [Jared's fork](https://github.com/jared-stilwell/escomplex-js) instead.**
+
+:exclamation: :anguished: :exclamation: :anguished: :exclamation: :anguished: :exclamation: :anguished: :exclamation: :anguished: :exclamation: :anguished: :exclamation: :anguished: :exclamation: :anguished: :exclamation: :anguished: :exclamation: :anguished: :exclamation:
 
 JavaScript wrapping library
 for [escomplex].
